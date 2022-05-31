@@ -12,31 +12,36 @@ public final class App {
     }
 
     /**
-     * Says hello to the world.
-     * @param args The arguments of the program.
+     * 
+     * @param args
      * @throws IOException
      */
     public static void main(String[] args) throws IOException {
+    
+        System.out.print("Ingrese el primer número:");
+        Integer numero1 = cargarNumero();
+
+        System.out.print("Ingrese el segundo número:");
+        Integer numero2 = cargarNumero();
+ 
+        System.out.print("Ingrese el tercer número:");
+        Integer numero3 = cargarNumero();
+
+        calcularNumeroMayor(numero1, numero2, numero3);
+        calcularNumeroMenor(numero1, numero2, numero3);
+    }
+
+    private static Integer cargarNumero() throws IOException {
         
         InputStreamReader capturarTeclado = new InputStreamReader(System.in);
         BufferedReader buffer = new BufferedReader(capturarTeclado);
-        
-        System.out.print("Ingrese el primer número:");
-        String strNumero1 = buffer.readLine();
-        Integer numero1 = Integer.parseInt(strNumero1);
 
-        System.out.print("Ingrese el segundo número:");
-        String strNumero2 = buffer.readLine();
-        Integer numero2 = Integer.parseInt(strNumero2);
- 
-        System.out.print("Ingrese el tercer número:");
-        String strNumero3 = buffer.readLine();
-        Integer numero3 = Integer.parseInt(strNumero3);
+        String strNumero = buffer.readLine();
+        Integer numero = Integer.parseInt(strNumero);
+        return numero;
+    }
 
-        
-    } 
-
-    private static void calcularNumeroMayor() {
+    private static void calcularNumeroMayor(Integer numero1, Integer numero2, Integer numero3) {
 
         Integer numeroMayor = numero1;
 
@@ -50,6 +55,9 @@ public final class App {
 
         System.out.println("El numero mayor es: " + numeroMayor);
 
+    }
+
+    private static void calcularNumeroMenor(Integer numero1, Integer numero2, Integer numero3) {
         
         Integer numeroMenor = numero1;
 
